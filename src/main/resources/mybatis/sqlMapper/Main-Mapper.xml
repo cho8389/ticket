@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MainMapper">
+	<update id="insertmain">
+		insert into main(main_id,ttr_no,main_path)
+		values(#{main_id},#{ttr_no},#{main_path})
+	</update>
+	<update id="deletemain">
+		delete from main
+		where main_id=#{main_id}
+	</update>
+	<update id="updatemain">
+		update main set ttr_no=#{ttr_no},main_path=#{main_path}
+		where main_id=#{main_id}
+	</update>
+	<select id="selectmain" resultType="main">
+		select * from main
+		where main_id=#{main_id}
+	</select>
+	<select id="selectmainall" resultType="main">
+		select * from main
+	</select>
+	<select id="selectThumb" resultType="str">
+		select thumb_name from thumb
+		where ttr_no=#{ttr_no}
+	</select>
+</mapper>
